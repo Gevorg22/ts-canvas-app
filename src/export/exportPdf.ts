@@ -8,7 +8,8 @@ export const exportSceneToPdf = async (
 ): Promise<void> => {
   const serializedScene = await serializeScene(container, width, height)
 
-  const response = await fetch('/api/export-pdf', {
+  const apiBase = (import.meta.env.VITE_API_BASE as string | undefined) ?? ''
+  const response = await fetch(`${apiBase}/api/export-pdf`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
