@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite'
 
-const isGitHubPagesBuild = process.env.GITHUB_PAGES === 'true'
-
-export default defineConfig({
-  base: isGitHubPagesBuild ? '/ts-canvas-app/' : '/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/ts-canvas-app/' : '/',
   server: {
     port: 5173,
     proxy: {
@@ -13,4 +11,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))
