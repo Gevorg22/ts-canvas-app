@@ -1,0 +1,151 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ebebeb;
+  color: #111;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#app {
+  width: min(1320px, calc(100% - 48px));
+  margin: 24px auto 40px;
+}
+
+.page-title {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.example-frame {
+  border: 1px solid #b8b8b8;
+  min-height: 640px;
+  background: #efefef;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.left-controls {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+button {
+  border: 1px solid #383838;
+  background: #f4d400;
+  color: #111;
+  font: 600 23px/1.15 Arial, sans-serif;
+  padding: 12px 12px;
+  cursor: pointer;
+  min-height: 72px;
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #ffe44d;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.status {
+  font: 500 34px/1.2 Arial, sans-serif;
+  color: #4b4b4b;
+  margin-top: 10px;
+}
+
+.canvas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.canvas-card {
+  border: 2px solid #999;
+  background: #e7e7e7;
+  padding: 18px;
+}
+
+.canvas-label {
+  font-family: Arial, sans-serif;
+  font-size: clamp(32px, 3.6vw, 66px);
+  line-height: 1.04;
+  margin-bottom: 12px;
+  display: grid;
+}
+
+.canvas-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border: 1px solid #bdbdbd;
+  background: #fff;
+  overflow: hidden;
+}
+
+.canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1180px) {
+  .example-frame {
+    grid-template-columns: 1fr;
+  }
+
+  .left-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .status {
+    grid-column: 1 / -1;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 820px) {
+  #app {
+    width: calc(100% - 24px);
+    margin: 12px auto 28px;
+  }
+
+  .example-frame {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .canvas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .left-controls {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    font-size: 20px;
+    min-height: 62px;
+  }
+
+  .status {
+    font-size: 22px;
+  }
+}
