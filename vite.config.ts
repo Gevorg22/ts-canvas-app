@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/ts-canvas-app/' : '/',
+export default defineConfig({
   server: {
     port: 5173,
     proxy: {
@@ -11,4 +10,4 @@ export default defineConfig(({ command }) => ({
       }
     }
   }
-}))
+})
